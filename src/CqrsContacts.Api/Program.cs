@@ -25,7 +25,7 @@ namespace CqrsContacts.Api
 
             builder.Services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
             builder.Services.Configure<ContactDatabaseOptions>(builder.Configuration.GetSection("ContactDatabase"));
-            builder.Services.AddScoped<IMongoClient>(x =>
+            builder.Services.AddSingleton<IMongoClient>(x =>
             {
                 var options = x.GetService<IOptions<ContactDatabaseOptions>>();
                 return new MongoClient(options?.Value.ConnectionString); ;
