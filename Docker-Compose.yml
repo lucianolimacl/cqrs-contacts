@@ -1,0 +1,25 @@
+version: '1'
+services:
+  api:
+    container_name: cqrs-contacts-api
+    image: cqrs-contacts-api
+    restart: always
+    build: 
+      context: .
+      dockerfile: CqrsContacts.Dockerfile
+    ports:
+      - "5000:5000"
+    links:
+      - mongodb
+  mongodb:
+    container_name: mongodb-cqrs-contacts-api
+    image: mongodb-cqrs-contacts-api
+    build:
+      context: .
+      dockerfile: Mongo.Dockerfile     
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27018:27017"
+
+
