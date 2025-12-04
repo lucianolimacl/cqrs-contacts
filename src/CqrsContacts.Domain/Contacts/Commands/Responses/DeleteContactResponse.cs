@@ -1,8 +1,7 @@
-﻿namespace CqrsContacts.Domain.Contacts.Commands.Responses
-{
-    using CqrsContacts.Domain.Contacts.Utils;
+﻿namespace CqrsContacts.Domain.Contacts.Commands.Responses;
 
-    public class DeleteContactResponse : BaseContactResponse
-    {
-    }
+using CqrsContacts.Domain.Contacts.Utils;
+
+public class DeleteContactResponse : BaseContactResponse
+{
 }
